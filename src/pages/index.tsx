@@ -99,7 +99,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
         <div className="container flex h-14 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -110,12 +109,9 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="container py-4 space-y-6 pb-24">
-        {/* Business Mode */}
         <BusinessModeSelector selected={businessMode} onSelect={setBusinessMode} />
 
-        {/* Form Inputs */}
         <div className="space-y-3">
           <h2 className="text-lg font-bold text-foreground">Data Produksi</h2>
           <div className="space-y-2">
@@ -138,18 +134,15 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Input Sections */}
         <InputBahanBaku items={bahanBaku} onChange={setBahanBaku} />
         <InputBiaya items={biayaPengolahan} onChange={setBiayaPengolahan} />
         <InputProduk items={produkTurunan} onChange={setProdukTurunan} />
 
-        {/* Hitung Button */}
         <Button onClick={handleHitung} className="w-full h-12 text-base font-bold gap-2" size="lg">
           <Calculator className="h-5 w-5" />
           Hitung HPP
         </Button>
 
-        {/* Results */}
         {hasil && (
           <>
             <HPPResult
@@ -158,19 +151,14 @@ const Index = () => {
               biayaPengolahan={biayaPengolahan}
               batchPerMonth={batchPerMonth}
             />
-
             <ProfitProjection hasil={hasil} batchPerMonth={batchPerMonth} />
-
             <ChartProfit hasil={hasil} batchPerMonth={batchPerMonth} />
-
             {produkTurunan.length >= 2 && (
               <BundlingCalculator
                 produkTurunan={produkTurunan}
                 hppPerProduk={hasil.hppPerProduk}
               />
             )}
-
-            {/* Action Buttons */}
             <div className="grid grid-cols-2 gap-3">
               <Button onClick={handleSave} variant="outline" className="gap-2">
                 <Save className="h-4 w-4" />
